@@ -6,10 +6,10 @@ def get_number(prompt):
                 return int(number)
             return number
         except ValueError:
-            print("Это не число! Пожалуйста, введите число.")
+            print("Эм, ну вообще-то это не число")
 def get_operation():
     message = '''
-Выберете математическую операцию:
+Что будем делать?:
 
 + : Сложение
 - : Вычитание
@@ -20,7 +20,7 @@ def get_operation():
     correct_operations = '+-/*'
     operation = input(message)
     while operation not in correct_operations:
-        print('Такая операция недоступна. Повторите попытку.')
+        print("Эм, ну я такое делать не умею")
         operation = input(message)
     return operation
 def calculate(num1, num2, operation):
@@ -33,7 +33,7 @@ def calculate(num1, num2, operation):
         try:
             result = num1 / num2
         except ZeroDivisionError:
-            result = "Деление на ноль запрещено"
+            result = "Ну, если ты не знал, то деление ноль запрещено"
     elif operation == '*':
         result = num1 * num2
     return result
@@ -42,7 +42,7 @@ def main():
     num2 = get_number("Введите второе число: ") 
     operation = get_operation() 
     result = calculate(num1, num2, operation) 
-    print("Результат:", result)
+    print(result)
 main()
 while True:
     decision = (input('Продолжить? (да/нет) ')).lower()
